@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://vi8rhfieqfnv"]
+
+[ext_resource type="PackedScene" uid="uid://ebxiej8hkmb2" path="res://player.tscn" id="1_kdm1m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgqbp"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dm8aj"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v3so"]
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_kgqbp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_dm8aj")
+surface_material_override/0 = SubResource("StandardMaterial3D_7v3so")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.0442, 0)
+shadow_enabled = true
+directional_shadow_split_1 = 0.196
+directional_shadow_max_distance = 0.0
+
+[node name="Player" parent="." instance=ExtResource("1_kdm1m")]
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 19.0

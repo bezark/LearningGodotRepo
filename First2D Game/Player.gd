@@ -45,7 +45,7 @@ func _process(delta):
 
 func _on_Player_body_entered(body):
 	hide()
-	emit_signal("hide")
+	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabeled", true)
 
 func start(pos):

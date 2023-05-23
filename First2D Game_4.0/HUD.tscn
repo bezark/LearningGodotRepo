@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://blb3r4gb4pvk3"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="2"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("2")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 135.0
+offset_bottom = 78.0
+text = "0"
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -39.0
+offset_right = 256.5
+offset_bottom = 39.0
+pivot_offset = Vector2(869, -50)
+text = "Dodge the
+Boiz!"
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -87.0
+offset_right = 90.0
+offset_bottom = -3.0
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
