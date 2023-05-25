@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://daih30edasnjm"]
+
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_0am6h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lrsld"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_futw0"]
+seamless = true
+noise = SubResource("FastNoiseLite_lrsld")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_u3kme"]
+rayleigh_coefficient = 4.11
+turbidity = 1000.0
+ground_color = Color(0.176471, 0.380392, 0.427451, 1)
+night_sky = SubResource("NoiseTexture2D_futw0")
+
+[sub_resource type="Sky" id="Sky_v26ke"]
+sky_material = SubResource("PhysicalSkyMaterial_u3kme")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_cm811"]
+background_mode = 2
+sky = SubResource("Sky_v26ke")
+tonemap_mode = 2
+glow_enabled = true
+fog_light_energy = 2.79
+fog_density = 0.0392
+fog_sky_affect = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhiqb"]
+albedo_color = Color(0.239216, 0.282353, 0.301961, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+
+[node name="LittleWorld" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cm811")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.37852)
+script = ExtResource("1_0am6h")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qhiqb")
+size = Vector3(0.160672, 1, 0.154201)

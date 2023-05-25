@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1svpm2m2ip1s"]
+
+[ext_resource type="PackedScene" uid="uid://daih30edasnjm" path="res://little_world.tscn" id="1_gmy7m"]
+[ext_resource type="Shader" path="res://Melty.gdshader" id="2_a3ad5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1nky7"]
+noise_type = 2
+seed = 1
+frequency = 0.0171
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vhnrt"]
+resource_local_to_scene = true
+seamless = true
+seamless_blend_skirt = 1.0
+as_normal_map = true
+bump_strength = 19.0
+noise = SubResource("FastNoiseLite_1nky7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwh4e"]
+shader = ExtResource("2_a3ad5")
+shader_parameter/speed = 0.01
+shader_parameter/scale = 0.01
+shader_parameter/BIAS = 0.01
+shader_parameter/noise = SubResource("NoiseTexture2D_vhnrt")
+
+[node name="Node" type="Node"]
+
+[node name="LittleWorld" parent="." instance=ExtResource("1_gmy7m")]
+editor_description = "A test Scene
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Post Effects" type="ColorRect" parent="CanvasLayer"]
+texture_filter = 2
+material = SubResource("ShaderMaterial_xwh4e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
