@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://usuxw5v22obx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t6ou5"]
+noise_type = 2
+frequency = 0.0203
+offset = Vector3(1, 1, 1)
+fractal_octaves = 10
+fractal_lacunarity = 1.0
+fractal_gain = 1.0
+fractal_weighted_strength = 1.0
+cellular_distance_function = 3
+cellular_jitter = 50.0
+cellular_return_type = 4
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 0.0
+domain_warp_frequency = -0.157
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v7bo6"]
+noise = SubResource("FastNoiseLite_t6ou5")
+
+[sub_resource type="Gradient" id="Gradient_ggetm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cd6ny"]
+noise_type = 0
+frequency = 0.005
+offset = Vector3(0, 0, 1e+09)
+fractal_octaves = 1
+fractal_lacunarity = 1.0
+fractal_gain = 1.0
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r885s"]
+color_ramp = SubResource("Gradient_ggetm")
+noise = SubResource("FastNoiseLite_cd6ny")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxod5"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0.109804, 0.4, 1)
+metallic = 1.0
+metallic_specular = 0.45
+roughness = 0.18
+emission = Color(0, 0.741176, 0.921569, 1)
+emission_energy_multiplier = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_v7bo6")
+rim_enabled = true
+rim_tint = 0.24
+rim_texture = SubResource("NoiseTexture2D_r885s")
+
+[sub_resource type="TorusMesh" id="TorusMesh_c6t7g"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.934108, 0.125174, -0.334326, -0.325766, 0.68192, -0.654875, 0.14601, 0.720636, 0.677764, 0.22831, 0.0766334, -0.0864842)
+material_override = SubResource("StandardMaterial3D_jxod5")
+mesh = SubResource("TorusMesh_c6t7g")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://daih30edasnjm"]
+[gd_scene load_steps=9 format=3 uid="uid://daih30edasnjm"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_0am6h"]
+[ext_resource type="Script" path="res://little_world_controller.gd" id="1_l66gr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lrsld"]
 
@@ -35,6 +36,8 @@ roughness = 0.0
 emission_enabled = true
 
 [node name="LittleWorld" type="Node3D"]
+script = ExtResource("1_l66gr")
+zoom = 1.286
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cm811")
