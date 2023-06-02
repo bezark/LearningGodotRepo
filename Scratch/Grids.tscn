@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccs7m5np2u2kp"]
+
+[ext_resource type="PackedScene" uid="uid://daih30edasnjm" path="res://little_world.tscn" id="2_bdr2y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sd3y4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ryun"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+material = SubResource("CanvasItemMaterial_sd3y4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="A" type="ColorRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 0.0862745, 1)
+
+[node name="A2" type="ColorRect" parent="GridContainer"]
+material = SubResource("CanvasItemMaterial_4ryun")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0.109804, 0.180392, 1)
+
+[node name="A3" type="ColorRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 0.227451, 1, 1)
+
+[node name="A4" type="ColorRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.258824, 1, 1, 1)
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "HELLO"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(574, 213)
+render_target_update_mode = 4
+
+[node name="LittleWorld" parent="GridContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_bdr2y")]
