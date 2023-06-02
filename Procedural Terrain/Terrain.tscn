@@ -1171,7 +1171,7 @@ texture = ExtResource("1_6cqdi")
 [sub_resource type="TileSet" id="TileSet_sris4"]
 sources/0 = SubResource("TileSetAtlasSource_yl4an")
 
-[node name="Node2D" type="Node2D"]
+[node name="Perlin Terrain" type="Node2D"]
 position = Vector2(2, 0)
 
 [node name="Terrain" type="TileMap" parent="."]

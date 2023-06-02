@@ -16,7 +16,7 @@ func _ready():
 	altitude.seed = randi()
 	offset.seed = randi()
 
-
+	
 
 func _process(delta):
 	pass

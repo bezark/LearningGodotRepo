@@ -14,7 +14,3 @@ config/name="Scratch"
 run/main_scene="res://canvas_layer_demo.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
-
-[display]
-
-window/size/mode=3

@@ -18,3 +18,4 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
 		position.y += SPEED 
 		emit_signal("moving")
+	move_and_slide()

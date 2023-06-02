@@ -141,21 +141,17 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(-32, -32)
 script = ExtResource("1_6qqbf")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(40, 40)
 sprite_frames = SubResource("SpriteFrames_3hd58")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.313892
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(40, 40)
 shape = SubResource("RectangleShape2D_jdfmv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(40, 40)
 zoom = Vector2(0.5, 0.5)
